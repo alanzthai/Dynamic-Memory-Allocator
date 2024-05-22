@@ -1,0 +1,14 @@
+void *search_free_list(size_t adjusted_size);
+int get_size_class(size_t size);
+size_t get_block_size(sf_block *block);
+int is_allocated(sf_block *block);
+int prev_allocated(sf_block *block);
+int in_quicklist(sf_block *block);
+void remove_free_list(sf_block *block);
+void place(sf_block *block_pointer, size_t adjusted_size);
+void create_footer(sf_block *block);
+void set_free_list_pointers();
+void add_free_list_block(sf_block *block, size_t size);
+sf_block *extend_heap(sf_block *epilogue);
+sf_block *coalesce(sf_block *block);
+void flush(int index);
